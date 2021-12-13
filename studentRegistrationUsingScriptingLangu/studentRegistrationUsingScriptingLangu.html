@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Sign-Up</title>
+    <link type="text/css" rel="stylesheet" href="mystyle.css">
+    <script type="text/javascript" src="myjs.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <h1 style="text-align:center">Student Registration</h1>
+        <hr>
+        <?php
+if(isset($_POST['submit']))
+{
+ $fname=$_POST['fname'];
+ $lname=$_POST['lname']; 
+ $email=$_POST['email'];
+ $psw=$_POST['psw'];
+ $repsw=$_POST['repsw'];
+ $contact=$_POST['contact'];
+ //use here Database(MySql) program. 
+ 
+}
+?>
+        <form action="signup.php" name="myForm" method="post">
+            <div id="div1">
+                First Name<br>
+                <input type="text" required name="fname" placeholder="First 
+Name"><br><br>
+                Last Name<br>
+                <input type="text" required name="laname" placeholder="Last 
+Name"><br><br>
+                Email<br>
+                <input type="email" required name="email" placeholder="Email 
+Address"><br><br>
+                Password<br>
+                <input type="password" required id="pass1" name="psw" placeholder="Password"><br><br>
+                Re-Password<br>
+                <input type="password" required id="pass2" onkeyup="checkPass(); return false;" name="repsw"
+                    placeholder="Re-Password">
+                <span id="confirmMessage" class="confirmMessage"></span><br><br>
+                Contact<br>
+                <input type="tel" name="contact" required placeholder="Contact 
+Number"><br><br>
+                <input type="submit" name="submit" value="Sign-Up">
+            </div>
+        </form>
+        <hr>
+        <p>This is Footer...</p>
+    </div>
+</body>
+
+</html>

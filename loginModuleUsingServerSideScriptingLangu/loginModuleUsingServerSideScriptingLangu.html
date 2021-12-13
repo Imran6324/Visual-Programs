@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        #header1 {
+            width: 100%;
+            height: 10%;
+            background-color: green;
+            margin-top: 8%;
+            margin-left: 0px;
+            margin-right: 0px;
+            font-size: 30px;
+            color: #CF3;
+            text-align: center;
+            padding-top: 2px;
+            border: 2px solid #CF0;
+
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: green;
+            border: 1px solid #FF0;
+        }
+
+        section {
+            background-color: #FF9;
+        }
+
+        #login {
+            border: 2px solid #FF0;
+            width: 400px;
+            margin: 0px;
+            padding: 20px;
+            font-size: 24px;
+            color: green;
+            font-weight: bolder;
+            background-color: #FFC;
+        }
+    </style>
+</head>
+
+<body style="background-color:#CCC">
+    <header id="header1">
+        <h1>Welcome to Login Page</h1>
+    </header>
+    <section>
+        <center>
+            <div id="login">
+                <?php
+require("connection.php");
+if(isset($_POST['submit']))
+{
+ $sql="select userid from users where username='".$_POST['username']."' 
+and password='".$_POST['password']."'";
+ if($result=mysql_query($sql))
+ {
+ if($rows=mysql_num_rows($result))
+ {
+ if($rows==1)
+ {
+ $_SESSION['username']=$_POST['username'];
+ header('Location: home.php');
+ }
+ else
+ {
+ echo "Invalid login details";
+ }
+ }
+ else
+ {
+ echo "Invalid login details";
+ } 
+ }
+ 
+}
+?>
+                <form action="###" name="###" method="post">
+                    <fieldset>
+                        <legend>Login Details</legend>
+                        Username <input type="text" size="25" width="10" name="username" placeholder="Username"
+                            autofocus required><br><br>
+                        Password <input type="password" size="25" name="password" placeholder="Password"
+                            required><br><br>
+                        <input type="submit" name="submit" value="Login">
+                    </fieldset>
+                </form>
+            </div>
+        </center>
+    </section>
+
+    <footer>
+        <h1></h1>
+    </footer>
+</body>
+
+</html>

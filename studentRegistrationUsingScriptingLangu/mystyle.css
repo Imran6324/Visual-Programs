@@ -1,0 +1,28 @@
+#main {
+  width: 40%;
+  background: #b3b3ff;
+  height: auto;
+  margin: 0px 30%;
+  border: 1px solid green;
+  font-size: 25px;
+}
+#div1 {
+  padding: 0px 100px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="submit"] {
+  padding: 10px;
+  width: 250px;
+  font-size: 18px;
+  border: none;
+  background: #e6e6ff;
+}
+input[type="submit"] {
+  background: #333399;
+  color: white;
+  width: 150px;
+  height: 45px;
+}
